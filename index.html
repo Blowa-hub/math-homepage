@@ -7,16 +7,449 @@
   <meta name="theme-color" content="#2257a3">
   <meta name="color-scheme" content="light">
   <title>王鹏超 · Pengchao Wang</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTIiIGZpbGw9IiMyMjU3YTMiLz48cGF0aCBkPSJNMTQgMThoMTVxOCAwIDggOXQtOCA5aC03djEwaC04em04IDd2NGg3cTIgMCAyLTJ0LTItMnptMTctN2g3bDQgMjAgNC0yMGg3bC05IDI4aC03eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPgo=" type="image/svg+xml">
+  <style>
+:root {
+  --page: #f5f7fa;
+  --paper: #ffffff;
+  --ink: #1f2d3d;
+  --muted: #5e6d7d;
+  --blue: #2257a3;
+  --line: #e1e7ee;
+  --soft: #edf3fc;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-padding-top: 24px; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.8;
+}
+a { color: var(--blue); text-decoration: none; text-underline-offset: 4px; }
+a:hover { text-decoration: underline; }
+button, textarea { font: inherit; }
+button { cursor: pointer; }
+a, button, summary { touch-action: manipulation; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+::selection { background: #dbe8fb; }
+[hidden] { display: none !important; }
+
+.skip-link {
+  position: fixed;
+  left: 20px;
+  top: -100px;
+  z-index: 10;
+  background: var(--blue);
+  color: #fff;
+  padding: 9px 16px;
+}
+.skip-link:focus { top: 12px; }
+
+.topbar, .layout, .site-footer {
+  max-width: 1180px;
+  margin: 0 auto;
+  background: var(--paper);
+  border-inline: 1px solid #e8edf3;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 44px;
+  border-bottom: 1px solid var(--line);
+}
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+.wordmark:hover { text-decoration: none; }
+.brand-label { color: var(--muted); font-size: 10px; font-weight: 400; letter-spacing: .08em; }
+.mark {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  background: var(--soft);
+  border-radius: 4px;
+  color: var(--blue);
+  font-size: 11px;
+  letter-spacing: .02em;
+}
+.topbar-right { display: flex; align-items: center; gap: 24px; }
+.topbar nav { display: flex; align-items: center; gap: 24px; font-size: 13px; }
+.topbar nav a { color: #4d5e74; }
+.topbar nav a:hover { color: var(--blue); }
+.language-button {
+  min-width: 44px;
+  min-height: 32px;
+  padding: 3px 10px;
+  border: 1px solid #cdd8e6;
+  border-radius: 4px;
+  background: #fff;
+  color: #344862;
+  font-size: 12px;
+}
+.language-button:hover { background: var(--soft); border-color: #9db8dd; }
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 232px) minmax(0, 1fr);
+  gap: 62px;
+  min-height: calc(100vh - 145px);
+  padding: 42px 44px 36px;
+}
+.profile-panel { align-self: start; position: sticky; top: 30px; }
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: .12em;
+}
+.profile-panel h1 {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: .015em;
+  overflow-wrap: anywhere;
+}
+.alternate-name {
+  margin: 4px 0 22px;
+  color: #46556c;
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.5;
+}
+.alternate-name:lang(zh) { font-family: var(--sans); font-size: 24px; }
+.affiliation { margin: 0; font-size: 15px; line-height: 1.85; overflow-wrap: anywhere; }
+.role { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+.profile-research { margin-top: 24px; padding-top: 19px; border-top: 1px solid var(--line); }
+.profile-caption { margin: 0 0 8px; color: var(--muted); font-size: 12px; }
+.profile-research .research-interests { display: block; margin-top: 0; padding-top: 0; border-top: 0; }
+.profile-research .interest-tag { display: block; font-size: 14px; line-height: 1.9; }
+.profile-research .interest-tag::after { content: none; }
+.research-interests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 10px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.interest-tag { color: #3e587b; font-size: 13px; line-height: 1.7; }
+.interest-tag:not(:last-child)::after { content: " ·"; margin-left: 9px; color: var(--muted); }
+.profile-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 20px;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.profile-links a { display: inline-flex; align-items: center; gap: 7px; }
+.external-arrow { color: var(--muted); font-size: 12px; }
+
+.main-column { min-width: 0; }
+.about-section { padding: 0 0 30px; }
+.about-section > h2, .section-heading {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 16px;
+}
+.about-section h2, .section-heading h2 {
+  margin-top: 0;
+  color: #1c2c42;
+  font-family: var(--sans);
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+.section-heading h2 { margin-bottom: 0; }
+.section-subtitle {
+  display: inline-block;
+  margin-left: 10px;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+.bio { margin: 0; font-size: 15px; line-height: 1.9; color: #3f4d60; }
+.alternate-bio { margin: 13px 0 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.bio + .bio { margin-top: 12px; }
+.about-section .research-interests { margin-top: 16px; padding-top: 0; border: 0; }
+.text-link { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; }
+.publications-section { padding-top: 0; }
+.section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.section-heading .eyebrow { margin-bottom: 6px; }
+.paper-count { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.section-intro { margin: 0 0 16px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+
+.category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin: 0 0 24px;
+  font-size: 13px;
+}
+.category-nav a { padding-bottom: 3px; border-bottom: 1px solid #b5cbe7; }
+.category-nav a:hover { border-color: var(--blue); text-decoration: none; }
+.category-heading { display: flex; align-items: baseline; gap: 9px; margin-bottom: 10px; }
+.category-heading h3 { margin: 0; color: #30435c; font-size: 16px; font-weight: 600; line-height: 1.6; }
+.category-count { color: var(--muted); font-size: 12px; line-height: 1.5; }
+.category-count::before { content: "("; }
+.category-count::after { content: ")"; }
+.paper-category + .paper-category { margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--line); }
+.paper-category.is-empty { display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px; }
+.paper-category.is-empty .category-heading { margin-bottom: 0; }
+.paper-category.is-empty .category-empty { padding: 0; }
+.category-empty, .empty-state { margin: 0; padding: 4px 0 10px; font-size: 14px; color: var(--muted); }
+
+.year-group { margin: 0; padding: 0; }
+.year-group + .year-group { margin-top: 24px; }
+.year-label {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.year-label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.paper { padding: 0 0 20px; }
+.paper + .paper { padding-top: 20px; border-top: 1px solid var(--line); }
+.paper:last-child { padding-bottom: 0; }
+.paper-title {
+  margin: 0 0 7px;
+  color: #192f4b;
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+.paper-title a { color: inherit; }
+.paper-title a:hover { color: var(--blue); }
+.authors { margin: 0 0 6px; color: var(--muted); font-size: 14.5px; line-height: 1.7; }
+.authors strong { color: #283a52; font-weight: 600; }
+.publication-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px 12px;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.status-badge { color: #405c82; font-size: 12px; }
+.nonpublic-badge { color: #7b592b; }
+.nonpublic-note { color: #645f56; font-size: 12px; line-height: 1.7; }
+.paper-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; }
+.paper-link, .cite-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 3px 0;
+  border: 0;
+  border-bottom: 1px solid #b5cbe7;
+  border-radius: 0;
+  background: transparent;
+  color: var(--blue);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.paper-link:hover, .cite-button:hover { border-color: var(--blue); text-decoration: none; }
+.paper-link[data-kind="pdf"] {
+  padding: 3px 11px;
+  border: 1px solid #d1e0f4;
+  border-radius: 4px;
+  background: var(--soft);
+  color: #1b4c94;
+  font-weight: 600;
+}
+.paper-link[data-kind="pdf"]:hover { background: #dfeafa; border-color: #a9c4e7; }
+.cite-button { border-bottom-style: dotted; }
+.abstract { margin-top: 12px; color: #4d5e73; font-size: 14px; line-height: 1.85; }
+.abstract summary { width: fit-content; color: var(--muted); font-size: 13px; cursor: pointer; list-style-position: inside; }
+.abstract summary:hover { color: var(--blue); }
+.abstract p {
+  margin: 10px 0 0;
+  padding: 11px 15px;
+  border-left: 2px solid #cbdcf2;
+  background: #f7f9fc;
+  overflow-wrap: anywhere;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  padding: 20px 44px 26px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+}
+.footer-separator { color: var(--muted); }
+.footer-links { display: flex; flex-wrap: wrap; gap: 16px; margin-left: auto; }
+.footer-links a { font-size: 12px; }
+
+dialog {
+  width: min(650px, calc(100% - 32px));
+  padding: 26px;
+  border: 1px solid #cbd7e5;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 20px 70px #1f385e26;
+}
+dialog::backdrop { background: #152b4659; }
+.dialog-heading { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.dialog-heading h2 { margin: 0; font-size: 22px; font-weight: 600; line-height: 1.5; }
+.close-button { padding: 3px 9px; border: 0; background: transparent; color: var(--muted); font-size: 28px; line-height: 1; }
+.citation-note { margin: 18px 0 8px; color: var(--muted); font-size: 13px; }
+#citation-text {
+  width: 100%;
+  min-height: 230px;
+  resize: vertical;
+  padding: 14px;
+  border: 1px solid #d4deeb;
+  border-radius: 4px;
+  background: #f7f9fc;
+  color: var(--ink);
+  font: 13px/1.7 ui-monospace, Consolas, monospace;
+}
+.dialog-bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 16px; }
+.dialog-bottom p { margin: 0; color: var(--muted); font-size: 13px; }
+.primary-button { flex-shrink: 0; min-height: 36px; padding: 6px 15px; border: 1px solid var(--blue); border-radius: 4px; background: var(--blue); color: #fff; font-size: 13px; }
+.primary-button:hover { background: #194784; border-color: #194784; }
+
+@media (max-width: 1080px) {
+  .topbar, .site-footer { padding-inline: 32px; }
+  .layout { grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 42px; padding: 36px 32px; }
+  .profile-panel h1 { font-size: 30px; }
+  .alternate-name { font-size: 23px; }
+  .paper-title { font-size: 19px; }
+}
+
+@media (max-width: 850px) {
+  body { background: #fff; }
+  .topbar, .layout, .site-footer { border-inline: 0; }
+  .topbar { padding: 16px 28px; }
+  .layout { display: block; padding: 30px 28px; }
+  .site-footer { padding-inline: 28px; }
+  .profile-panel {
+    position: static;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
+    column-gap: 28px;
+    padding-bottom: 24px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+  }
+  .profile-panel > .eyebrow { grid-column: 1 / -1; margin-bottom: 9px; }
+  .profile-panel h1 { grid-column: 1; font-size: 30px; }
+  .alternate-name { grid-column: 1; margin: 2px 0 0; font-size: 23px; }
+  .affiliation { grid-column: 2; grid-row: 2 / 4; align-self: center; font-size: 14px; }
+  .role { grid-column: 2; margin-top: 5px; }
+  .profile-panel .research-interests { grid-column: 1 / -1; margin-top: 16px; padding-top: 0; border: 0; }
+  .profile-panel .profile-research { grid-column: 1 / -1; margin-top: 16px; padding-top: 0; border: 0; }
+  .profile-panel .profile-research .research-interests { margin-top: 0; display: flex; gap: 5px 16px; }
+  .profile-links { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; gap: 8px 20px; margin-top: 12px; }
+  .about-section { padding-bottom: 26px; }
+  .paper-title { font-size: 20px; }
+}
+
+@media (max-width: 550px) {
+  .topbar { flex-wrap: wrap; gap: 10px 16px; padding: 14px 20px; }
+  .wordmark { font-size: 13px; gap: 8px; }
+  .topbar-right { margin-left: auto; gap: 16px; }
+  .topbar nav { gap: 16px; font-size: 12px; }
+  .language-button { font-size: 12px; min-width: 40px; padding-inline: 8px; }
+  .layout { padding: 26px 20px; }
+  .site-footer { padding-inline: 20px; }
+  .profile-panel { display: block; padding-bottom: 22px; margin-bottom: 24px; }
+  .profile-panel h1 { font-size: 30px; }
+  .alternate-name { margin: 2px 0 12px; font-size: 22px; }
+  .affiliation { font-size: 14px; }
+  .profile-panel .research-interests { margin-top: 14px; }
+  .profile-panel .profile-research .research-interests { margin-top: 0; }
+  .profile-links { margin-top: 12px; font-size: 13px; gap: 8px 18px; }
+  .about-section h2, .section-heading h2 { font-size: 20px; }
+  .section-subtitle { margin-left: 8px; font-size: 14px; }
+  .section-heading { gap: 12px; }
+  .paper-count { font-size: 12px; }
+  .category-nav { gap: 20px; margin-bottom: 20px; }
+  .paper-title { font-size: 19px; }
+  .paper-actions { gap: 8px 14px; }
+  .paper + .paper { padding-top: 19px; }
+  .paper { padding-bottom: 19px; }
+  .abstract p { padding: 10px 12px; }
+  .footer-links { margin-left: 0; flex-basis: 100%; gap: 18px; }
+  dialog { padding: 20px; }
+  .dialog-heading h2 { font-size: 20px; }
+  .dialog-bottom { align-items: flex-start; gap: 12px; }
+}
+
+@media (max-width: 360px) {
+  .topbar nav { gap: 12px; }
+  .section-subtitle { display: block; margin: 3px 0 0; }
+  .section-heading { align-items: flex-start; }
+}
+
+@media (max-width: 420px) {
+  .brand-label { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+@media print {
+  body { background: #fff; font-size: 10.5pt; }
+  .topbar, .skip-link, .category-nav, .paper-actions, footer, dialog { display: none !important; }
+  .layout { display: grid; max-width: none; min-height: 0; padding: 0; border: 0; grid-template-columns: 185px minmax(0, 1fr); gap: 30px; }
+  .profile-panel { display: block; position: static; border: 0; padding: 0; margin: 0; }
+  .profile-panel h1 { font-size: 23pt; }
+  .alternate-name { font-size: 17pt; }
+  .affiliation, .bio, .authors { font-size: 10.5pt; }
+  .profile-panel .research-interests { margin-top: 12px; }
+  .profile-links { flex-direction: column; margin-top: 12px; }
+  .section-heading h2, .about-section h2 { font-size: 14pt; }
+  .section-subtitle { font-size: 10pt; }
+  .paper-title { font-size: 12pt; }
+  .paper { break-inside: avoid; }
+  .abstract { display: none; }
+  a { color: inherit; }
+}
+
+</style>
   <script src="profile.js" defer></script>
   <script src="publications.js" defer></script>
-  <script src="assets/main.js" defer></script>
+  
 </head>
 <body>
   <a class="skip-link" href="#main" data-text="skip">Skip to content</a>
   <header class="topbar">
-    <a class="wordmark" href="#about" aria-label="王鹏超的学术主页"><span id="header-name">王鹏超</span><span class="brand-label" lang="en">MATHEMATICS</span></a>
+    <a class="wordmark" href="#about" aria-label="王鹏超的学术主页"><span id="header-name">王鹏超</span></a>
     <div class="topbar-right">
       <nav aria-label="Main navigation" data-aria="nav">
         <a href="#about" data-text="navAbout">研究</a>
@@ -32,13 +465,14 @@
       <p id="alternate-name" class="alternate-name" lang="en">Pengchao Wang</p>
       <p id="affiliation" class="affiliation" lang="zh-CN">中国科学院系统与科学学院</p>
       <p id="role" class="role" hidden></p>
-      <div id="research-interests" class="research-interests" hidden></div>
+      <div class="profile-research"><p class="profile-caption" data-text="interestsLabel">研究方向</p><div id="research-interests" class="research-interests" hidden></div></div>
       <div id="profile-links" class="profile-links"></div>
     </aside>
     <div class="main-column">
       <section id="about" class="about-section" aria-labelledby="about-title">
         <div class="section-heading"><h2 id="about-title"><span data-text="aboutTitle">研究简介</span><span class="section-subtitle" data-text="aboutSubtitle" lang="en">Research</span></h2></div>
         <p id="bio" class="bio"></p>
+        <p id="alternate-bio" class="alternate-bio" lang="en" hidden></p>
       </section>
       <section id="publications" class="publications-section" aria-labelledby="publications-title">
         <div class="section-heading"><h2 id="publications-title"><span data-text="papersTitle">论文</span><span class="section-subtitle" data-text="papersSubtitle" lang="en">Papers &amp; Preprints</span></h2><span id="paper-count" class="paper-count"></span></div>
@@ -47,9 +481,107 @@
         <div id="publication-list"></div>
         <noscript><p>JavaScript is needed to display the paper list. You can also <a href="https://arxiv.org/search/?query=Pengchao+Wang&searchtype=author" rel="noopener noreferrer">find papers on arXiv</a>.</p></noscript>
       </section>
-      <footer><span id="footer-name">王鹏超</span><span class="footer-separator" aria-hidden="true">/</span><span data-text="footerNote">个人学术主页</span><div class="footer-links"><a id="manage-papers" rel="noopener noreferrer" target="_blank" data-text="manage">管理论文</a><a href="https://github.com/Blowa-hub" rel="noopener noreferrer" target="_blank">GitHub <span aria-hidden="true">↗</span></a></div></footer>
     </div>
   </main>
+  <footer class="site-footer"><span id="footer-name">王鹏超</span><span class="footer-separator" aria-hidden="true">/</span><span data-text="footerNote">个人学术主页</span><div class="footer-links"><a id="manage-papers" rel="noopener noreferrer" target="_blank" data-text="manage">管理论文</a><a href="https://github.com/Blowa-hub" rel="noopener noreferrer" target="_blank">GitHub <span aria-hidden="true">↗</span></a></div></footer>
   <dialog id="citation-dialog" aria-labelledby="citation-title"><div class="dialog-heading"><h2 id="citation-title" data-text="citationTitle">Cite this paper</h2><button id="close-citation" class="close-button" type="button" aria-label="Close" data-aria="close">×</button></div><p class="citation-note" data-text="citationNote">BibTeX</p><textarea id="citation-text" readonly aria-label="BibTeX citation" lang="en"></textarea><div class="dialog-bottom"><p id="copy-status" role="status" aria-live="polite"></p><button id="copy-citation" class="primary-button" type="button" data-text="copy">Copy citation</button></div></dialog>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+(() => {
+  "use strict";
+  const profile = window.PROFILE || {};
+  const papers = Array.isArray(window.PUBLICATIONS) ? window.PUBLICATIONS : [];
+  const translations = {
+    en: { skip: "Skip to content", nav: "Main navigation", navAbout: "About", navPapers: "Publications", profile: "Profile", sidebarNote: "Research & publications", eyebrow: "ACADEMIC HOMEPAGE", aboutTitle: "Welcome.", browse: "Browse publications", papersEyebrow: "RESEARCH", papersTitle: "Publications & preprints", papersIntro: "Papers, preprints, and links to the full text.", footerNote: "Academic homepage", citationTitle: "Cite this paper", citationNote: "BibTeX", close: "Close", copy: "Copy citation", copied: "Citation copied.", copyFallback: "Select the citation and press Ctrl+C (⌘C on Mac).", abstract: "Abstract", cite: "Cite", empty: "The publication list is being prepared.", paperSingular: "paper", paperPlural: "papers", undated: "Undated", email: "Email", scholar: "Google Scholar" },
+    zh: { skip: "跳至正文", nav: "主导航", navAbout: "关于", navPapers: "论文", profile: "个人资料", sidebarNote: "研究与论文", eyebrow: "个人学术主页", aboutTitle: "欢迎。", browse: "浏览论文", papersEyebrow: "学术研究", papersTitle: "论文与预印本", papersIntro: "研究论文、预印本及全文链接。", footerNote: "个人学术主页", citationTitle: "引用这篇论文", citationNote: "BibTeX 引用格式", close: "关闭", copy: "复制引用", copied: "已复制引用。", copyFallback: "请选择引用文字，按 Ctrl+C（Mac 使用 ⌘C）复制。", abstract: "摘要", cite: "引用", empty: "论文列表正在整理。", paperSingular: "篇论文", paperPlural: "篇论文", undated: "未标年份", email: "电子邮箱", scholar: "Google Scholar" }
+  };
+  let language = profile.defaultLanguage === "zh" ? "zh" : "en";
+  translations.en.abstract = "Summary";
+  translations.zh.abstract = "简介";
+  Object.assign(translations.en, { papersIntro: "Completed papers and drafts, with PDFs and LaTeX sources.", categories: "Paper categories", completedTitle: "Completed papers", draftsTitle: "Drafts", completedEmpty: "No completed papers listed yet.", draftsEmpty: "No drafts shared yet.", manage: "Manage papers", nonpublic: "Non-public", nonpublicNote: "No arXiv link; attachments are public." });
+  Object.assign(translations.zh, { papersIntro: "按完成版与草稿分类，提供 PDF、LaTeX 源文件及可选的 arXiv 链接。", categories: "论文分类", completedTitle: "完成版", draftsTitle: "草稿", completedEmpty: "暂无完成版论文。", draftsEmpty: "暂无公开的草稿。", manage: "管理论文", nonpublic: "非公开", nonpublicNote: "未提供 arXiv 链接；附件仍公开下载。" });
+  Object.assign(translations.en, { navAbout: "Research", aboutTitle: "Research", aboutSubtitle: "研究简介", papersTitle: "Papers", papersSubtitle: "论文与预印本", papersIntro: "Completed papers and drafts, with PDF and LaTeX downloads.", interestsLabel: "Research areas" });
+  Object.assign(translations.zh, { navAbout: "研究", aboutTitle: "研究简介", aboutSubtitle: "Research", papersTitle: "论文", papersSubtitle: "Papers & Preprints", papersIntro: "完成版与草稿，提供 PDF 和 LaTeX 源码下载。", draftsEmpty: "暂无草稿。", interestsLabel: "研究方向" });
+  try { const saved = localStorage.getItem("academic-homepage-language"); if (saved === "en" || saved === "zh") language = saved; } catch (_) {}
+  const el = (tag, className, text) => { const node = document.createElement(tag); if (className) node.className = className; if (text !== undefined) node.textContent = text; return node; };
+  const localized = value => typeof value === "string" ? value : value?.[language] || value?.en || value?.zh || "";
+  const normalizeName = name => String(name).toLowerCase().replace(/[\s-]/g, "");
+  const safeURL = value => { if (typeof value !== "string" || !value.trim()) return null; try { const url = new URL(value, window.location.href); return ["http:", "https:", "file:"].includes(url.protocol) && !/^\s*\/\//.test(value) ? url : null; } catch (_) { return null; } };
+  const makeLink = (label, href, className) => { const url = safeURL(href); if (!url) return null; const link = el("a", className, label); link.href = href; if (url.origin !== window.location.origin) { link.target = "_blank"; link.rel = "noopener noreferrer"; } return link; };
+  function showCitation(paper, trigger) { const dialog = document.getElementById("citation-dialog"); document.getElementById("citation-text").value = paper.bibtex; document.getElementById("copy-status").textContent = ""; dialog.returnFocus = trigger; dialog.showModal(); }
+  function renderPaper(paper) {
+    const t = translations[language];
+    const article = el("article", "paper");
+    const heading = el("h5", "paper-title");
+    heading.lang = typeof paper.title === "string" ? "en" : language;
+    const title = localized(paper.title);
+    heading.append(makeLink(title, paper.links?.arxiv || paper.links?.doi || paper.links?.pdf, "") || el("span", "", title));
+    article.append(heading);
+    const authors = el("p", "authors"); authors.lang = "en";
+    const authorNames = Array.isArray(paper.authors) ? paper.authors : [];
+    authorNames.forEach((author, index) => { if (index) authors.append(document.createTextNode(", ")); const own = [localized(profile.name), profile.name?.en, profile.name?.zh].filter(Boolean).some(name => normalizeName(name) === normalizeName(author)); authors.append(own ? el("strong", "", author) : document.createTextNode(author)); });
+    article.append(authors);
+    const meta = el("div", "publication-meta");
+    if (paper.year) meta.append(el("span", "publication-year", String(paper.year)));
+    if (paper.status) meta.append(el("span", "status-badge", localized(paper.status)));
+    if (!paper.links?.arxiv?.trim()) { const badge = el("span", "status-badge nonpublic-badge", t.nonpublic); badge.title = t.nonpublicNote; badge.setAttribute("aria-label", `${t.nonpublic}: ${t.nonpublicNote}`); meta.append(badge, el("span", "nonpublic-note", t.nonpublicNote)); }
+    if (paper.venue) meta.append(el("span", "", localized(paper.venue)));
+    article.append(meta);
+    const actions = el("div", "paper-actions");
+    [["PDF", paper.links?.pdf], ["LaTeX", paper.links?.latex], ["arXiv", paper.links?.arxiv], ["DOI", paper.links?.doi], [language === "zh" ? "代码" : "Code", paper.links?.code]].forEach(([label, href]) => { const link = makeLink(label, href, "paper-link"); if (link) { link.dataset.kind = label.toLowerCase(); link.setAttribute("aria-label", `${label}: ${title}`); if (label === "LaTeX" && !/^[a-z]+:/i.test(href)) link.setAttribute("download", ""); if (label === "PDF") { link.target = "_blank"; link.rel = "noopener noreferrer"; } actions.append(link); } });
+    if (paper.bibtex) { const button = el("button", "cite-button", t.cite); button.type = "button"; button.setAttribute("aria-label", `${t.cite}: ${title}`); button.addEventListener("click", () => showCitation(paper, button)); actions.append(button); }
+    article.append(actions);
+    const abstract = localized(paper.abstract);
+    if (abstract) { const details = el("details", "abstract"); details.append(el("summary", "", t.abstract), el("p", "", abstract)); article.append(details); }
+    return article;
+  }
+  function render() {
+    const t = translations[language];
+    document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
+    document.title = `${localized(profile.name)} · ${language === "zh" ? "个人学术主页" : "Research & Publications"}`;
+    document.querySelectorAll("[data-text]").forEach(node => { node.textContent = t[node.dataset.text]; });
+    document.querySelectorAll(".section-subtitle").forEach(node => { node.lang = language === "zh" ? "en" : "zh-CN"; });
+    document.querySelectorAll("[data-aria]").forEach(node => { node.setAttribute("aria-label", t[node.dataset.aria]); });
+    ["header-name", "profile-name", "footer-name"].forEach(id => { document.getElementById(id).textContent = localized(profile.name); });
+    const alternate = document.getElementById("alternate-name"); alternate.textContent = localized(profile.alternateName); alternate.lang = language === "en" ? "zh" : "en";
+    document.getElementById("affiliation").textContent = localized(profile.affiliation);
+    const role = document.getElementById("role"); role.textContent = localized(profile.role); role.hidden = !role.textContent;
+    document.getElementById("bio").textContent = localized(profile.bio);
+    const alternateBio = document.getElementById("alternate-bio"); const alternateLanguage = language === "zh" ? "en" : "zh";
+    alternateBio.textContent = typeof profile.bio === "object" ? profile.bio?.[alternateLanguage] || "" : ""; alternateBio.lang = alternateLanguage === "zh" ? "zh-CN" : "en"; alternateBio.hidden = !alternateBio.textContent;
+    const repository = profile.repository || { owner: "Blowa-hub", name: "math-homepage", branch: "main" };
+    const managementURL = profile.adminURL || `https://github.com/${encodeURIComponent(repository.owner)}/${encodeURIComponent(repository.name)}/edit/${encodeURIComponent(repository.branch)}/publications.js`;
+    const managementLink = document.getElementById("manage-papers"); managementLink.href = safeURL(managementURL)?.href || "https://github.com/Blowa-hub";
+    const tags = document.getElementById("research-interests"); tags.replaceChildren(); const interests = Array.isArray(profile.researchInterests) ? profile.researchInterests : []; interests.forEach(item => tags.append(el("span", "interest-tag", localized(item)))); tags.hidden = !interests.length;
+    const links = document.getElementById("profile-links"); links.replaceChildren();
+    [["github", "GitHub"], ["scholar", t.scholar], ["orcid", "ORCID"]].forEach(([key, label]) => { const link = makeLink(label, profile.links?.[key], ""); if (link) { link.append(el("span", "external-arrow", "↗")); links.append(link); } });
+    const email = profile.links?.email; if (typeof email === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { const link = el("a", "", t.email); link.href = `mailto:${encodeURIComponent(email).replace(/%40/g, "@")}`; links.prepend(link); }
+    const langButton = document.getElementById("language-button"); langButton.textContent = language === "en" ? "中文" : "EN"; langButton.lang = language === "en" ? "zh-CN" : "en"; langButton.setAttribute("aria-label", language === "en" ? "切换为中文" : "Switch to English");
+    const list = document.getElementById("publication-list"); list.replaceChildren();
+    const validPapers = papers.filter(paper => paper && localized(paper.title));
+    document.getElementById("paper-count").textContent = language === "zh" ? `${validPapers.length} 篇论文` : `${validPapers.length} ${validPapers.length === 1 ? t.paperSingular : t.paperPlural}`;
+    const sorted = [...validPapers].sort((a, b) => (Number(b.year) || 0) - (Number(a.year) || 0) || String(b.date || "").localeCompare(String(a.date || "")));
+    [["completed", "completed-papers", t.completedTitle, t.completedEmpty], ["draft", "draft-papers", t.draftsTitle, t.draftsEmpty]].forEach(([stage, id, title, empty]) => {
+      const category = el("section", "paper-category"); category.id = id;
+      const items = sorted.filter(paper => (paper.stage || "completed") === stage);
+      if (!items.length) category.className += " is-empty";
+      const categoryHeading = el("div", "category-heading"); const heading = el("h3", "", title); heading.id = `${id}-title`; category.setAttribute("aria-labelledby", heading.id); categoryHeading.append(heading, el("span", "category-count", String(items.length))); category.append(categoryHeading);
+      if (!items.length) category.append(el("p", "category-empty", empty));
+      const groups = new Map(); items.forEach(paper => { const year = paper.year || t.undated; if (!groups.has(year)) groups.set(year, []); groups.get(year).push(paper); });
+      groups.forEach((yearItems, year) => { const section = el("section", "year-group"); section.setAttribute("aria-label", String(year)); section.append(el("h4", "year-label", String(year))); const entries = el("div", "year-papers"); yearItems.forEach(paper => entries.append(renderPaper(paper))); section.append(entries); category.append(section); });
+      list.append(category);
+    });
+  }
+  document.getElementById("language-button").addEventListener("click", () => { language = language === "en" ? "zh" : "en"; try { localStorage.setItem("academic-homepage-language", language); } catch (_) {} render(); });
+  const dialog = document.getElementById("citation-dialog");
+  document.getElementById("close-citation").addEventListener("click", () => dialog.close());
+  dialog.addEventListener("click", event => { if (event.target === dialog) { const rect = dialog.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close(); } });
+  dialog.addEventListener("close", () => dialog.returnFocus?.focus());
+  document.getElementById("copy-citation").addEventListener("click", async () => { const field = document.getElementById("citation-text"); const status = document.getElementById("copy-status"); try { await navigator.clipboard.writeText(field.value); status.textContent = translations[language].copied; } catch (_) { field.focus(); field.select(); status.textContent = translations[language].copyFallback; } });
+  render();
+})();
+
+}, { once: true });
+</script>
 </body>
 </html>
