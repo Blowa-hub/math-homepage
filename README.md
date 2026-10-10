@@ -7,9 +7,15 @@ GitHub 连接恢复后，可以继续由助手协助发布；以下手动步骤�
 ## 第一次发布
 
 1. 登录 GitHub，点击右上角 **＋ → New repository**，名称填 `math-homepage`，选择 **Public**，创建仓库。
-2. 选择 **Add file → Upload files**，上传本文件夹的**内容**，不要再包一层 `academic-homepage`。包括 `index.html`、`profile.js`、`publications.js`、`assets/`、`papers/`、本说明及空文件 `.nojekyll`。**不要上传 `admin-service/`**，它是另行部署的后台服务包。点击 **Commit changes** 保存；若 `.nojekyll` 被遗漏，用 **Add file → Create new file** 在根目录补建。
+2. 选择 **Add file → Upload files**。在 Windows 中打开解压后的文件夹，把里面的文件以及 **assets、papers 两个文件夹直接拖入 GitHub 的上传区域**，不要再包一层 `academic-homepage`。上传列表应包含 `assets/style.css`、`assets/main.js`、`papers/2610.10493/paper.pdf` 等带目录的路径。包括 `index.html`、`profile.js`、`publications.js`、`assets/`、`papers/`、本说明及空文件 `.nojekyll`。**不要上传 `admin-service/`**，它是另行部署的后台服务包。点击 **Commit changes** 保存；若 `.nojekyll` 被遗漏，用 **Add file → Create new file** 在根目录补建。
 3. 打开 **Settings → Pages → Build and deployment**，选择 **Deploy from a branch**，分支选 `main`，目录选 `/(root)`，点击 **Save**。
 4. 等待发布（可能约 10 分钟），在 Pages 设置中点击 **Visit site**。核对姓名、论文分类及 PDF、LaTeX 下载链接。以后提交到 `main` 会自动更新。
+
+## 更新外观
+
+本版采用简洁的左右两栏学术版式、白色阅读区、蓝色链接及双语栏目标题；在手机上改为上下排列。默认中文，可在页顶切换英文。
+
+解压最新版上传包，按第 2 步再次上传全部内容并提交，GitHub 会覆盖同名文件。提交前核对上传列表包含 `assets/` 与 `papers/` 下的文件；只上传根目录文件会导致样式、论文列表与附件无法加载。更新后稍等自动发布，再刷新主页。
 
 ## 个人资料与管理入口
 
