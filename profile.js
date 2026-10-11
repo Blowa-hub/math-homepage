@@ -4,7 +4,7 @@ window.PROFILE = {
   name: { en: "Pengchao Wang", zh: "王鹏超" },
   alternateName: { en: "王鹏超", zh: "Pengchao Wang" },
   // Kept exactly as supplied. Replace with your preferred official wording.
-  affiliation: "中国科学院系统与科学学院",
+  affiliation: "中国科学院数学与系统科学研究院",
   role: "",
   repository: { owner: "Blowa-hub", name: "math-homepage", branch: "main" },
   // Set this to the deployed management service URL after its login is configured.
