@@ -147,7 +147,9 @@ window.PUBLICATIONS = [
     "title": "Oka representatives of homotopy types of countable finite-dimensional CW complexes",
     "authors": [
       "Pengchao Wang"
-    ],
+    ],    
+    "year": 2026,
+    "date": "2026-10-11",
     "stage": "completed",
     "links": {
       "pdf": "papers/oka-cw-complexes/paper.pdf",
