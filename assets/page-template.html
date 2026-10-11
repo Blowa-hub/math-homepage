@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Academic homepage of Pengchao Wang (王鹏超), with research papers and preprints.">
+  <meta name="theme-color" content="#2257a3">
+  <meta name="color-scheme" content="light">
+  <title>王鹏超 · Pengchao Wang</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="profile.js" defer></script>
+  <script src="publications.js" defer></script>
+  <script src="assets/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-text="skip">Skip to content</a>
+  <header class="topbar">
+    <a class="wordmark" href="#about" aria-label="王鹏超的学术主页"><span id="header-name">王鹏超</span></a>
+    <div class="topbar-right">
+      <nav aria-label="Main navigation" data-aria="nav">
+        <a href="#about" data-text="navAbout">研究</a>
+        <a href="#publications" data-text="navPapers">论文</a>
+      </nav>
+      <button id="language-button" class="language-button" type="button" aria-label="Switch to English" lang="en">EN</button>
+    </div>
+  </header>
+  <main id="main" class="layout">
+    <aside class="profile-panel" aria-label="Profile" data-aria="profile">
+      <p class="eyebrow" lang="en">MATHEMATICS</p>
+      <h1 id="profile-name">王鹏超</h1>
+      <p id="alternate-name" class="alternate-name" lang="en">Pengchao Wang</p>
+      <p id="affiliation" class="affiliation" lang="zh-CN">中国科学院系统与科学学院</p>
+      <p id="role" class="role" hidden></p>
+      <div class="profile-research"><p class="profile-caption" data-text="interestsLabel">研究方向</p><div id="research-interests" class="research-interests" hidden></div></div>
+      <div id="profile-links" class="profile-links"></div>
+    </aside>
+    <div class="main-column">
+      <section id="about" class="about-section" aria-labelledby="about-title">
+        <div class="section-heading"><h2 id="about-title"><span data-text="aboutTitle">研究简介</span><span class="section-subtitle" data-text="aboutSubtitle" lang="en">Research</span></h2></div>
+        <p id="bio" class="bio"></p>
+        <p id="alternate-bio" class="alternate-bio" lang="en" hidden></p>
+      </section>
+      <section id="publications" class="publications-section" aria-labelledby="publications-title">
+        <div class="section-heading"><h2 id="publications-title"><span data-text="papersTitle">论文</span><span class="section-subtitle" data-text="papersSubtitle" lang="en">Papers &amp; Preprints</span></h2><span id="paper-count" class="paper-count"></span></div>
+        <p class="section-intro" data-text="papersIntro">完成版与草稿，提供 PDF 和 LaTeX 源码下载。</p>
+        <nav class="category-nav" aria-label="论文分类" data-aria="categories"><a href="#completed-papers" data-text="completedTitle">完成版</a><a href="#draft-papers" data-text="draftsTitle">草稿</a></nav>
+        <div id="publication-list"></div>
+        <noscript><p>JavaScript is needed to display the paper list. You can also <a href="https://arxiv.org/search/?query=Pengchao+Wang&searchtype=author" rel="noopener noreferrer">find papers on arXiv</a>.</p></noscript>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer"><span id="footer-name">王鹏超</span><span class="footer-separator" aria-hidden="true">/</span><span data-text="footerNote">个人学术主页</span><div class="footer-links"><a id="manage-papers" rel="noopener noreferrer" target="_blank" data-text="manage">管理论文</a><a href="https://github.com/Blowa-hub" rel="noopener noreferrer" target="_blank">GitHub <span aria-hidden="true">↗</span></a></div></footer>
+  <dialog id="citation-dialog" aria-labelledby="citation-title"><div class="dialog-heading"><h2 id="citation-title" data-text="citationTitle">Cite this paper</h2><button id="close-citation" class="close-button" type="button" aria-label="Close" data-aria="close">×</button></div><p class="citation-note" data-text="citationNote">BibTeX</p><textarea id="citation-text" readonly aria-label="BibTeX citation" lang="en"></textarea><div class="dialog-bottom"><p id="copy-status" role="status" aria-live="polite"></p><button id="copy-citation" class="primary-button" type="button" data-text="copy">Copy citation</button></div></dialog>
+</body>
+</html>
