@@ -1,5 +1,4 @@
-// Publication metadata verified against official arXiv pages on 2026-10-10.
-// Dates are first arXiv submission dates; title and summaries follow the latest version.
+// Paper metadata. An empty arXiv link shows the non-public label; attachments remain public.
 window.PUBLICATIONS = [
   {
     "id": "arxiv:2610.10493",
@@ -142,5 +141,18 @@ window.PUBLICATIONS = [
     },
     "bibtex": "@misc{wang2026wronskian,\n  title = {Wronskian curvature positivity is equivalent to the existence of a holomorphic projective connection},\n  author = {Pengchao Wang and Songyan Xie},\n  year = {2026},\n  eprint = {2607.11021},\n  archivePrefix = {arXiv},\n  primaryClass = {math.CV},\n  url = {https://arxiv.org/abs/2607.11021}\n}",
     "stage": "completed"
+  },
+  {
+    "id": "oka-cw-complexes",
+    "title": "Oka representatives of homotopy types of countable finite-dimensional CW complexes",
+    "authors": [
+      "Pengchao Wang"
+    ],
+    "stage": "completed",
+    "links": {
+      "pdf": "papers/oka-cw-complexes/paper.pdf",
+      "latex": "papers/oka-cw-complexes/latex-source.zip",
+      "arxiv": ""
+    }
   }
 ];
